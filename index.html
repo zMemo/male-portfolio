@@ -3,248 +3,408 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MALE — Fashion Design Portfolio</title>
+<title>Male — Portfolio</title>
+<meta name="description" content="Male — portfolio de diseño y gestión de estéticas para la moda. Fotografía de moda, campañas y escritos.">
+<meta property="og:title" content="Male — Portfolio">
+<meta property="og:description" content="Fotografía de moda, campañas y escritos.">
+<meta property="og:image" content="fotos/alien/01-portada-l.webp">
+<meta name="theme-color" content="#f3f0ea">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23151515'/%3E%3Ctext x='50%25' y='58%25' text-anchor='middle' dominant-baseline='middle' font-family='Georgia,serif' font-size='44' fill='%23f3f0ea'%3EM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400&display=swap" rel="stylesheet">
 <style>
-  :root{
-    --bg:#f6f4f0;
-    --ink:#1a1a1a;
-    --muted:#8a8377;
-    --line:#e2ddd4;
-    --accent:#1a1a1a;
-    --serif:'Cormorant Garamond', Georgia, serif;
-    --sans:'Jost', 'Helvetica Neue', Arial, sans-serif;
-  }
-  *{margin:0;padding:0;box-sizing:border-box}
-  html{scroll-behavior:smooth}
-  body{
-    background:var(--bg);
-    color:var(--ink);
-    font-family:var(--sans);
-    font-weight:300;
-    line-height:1.6;
-    -webkit-font-smoothing:antialiased;
-  }
-  img{display:block;width:100%;height:100%;object-fit:cover}
+:root{
+  --paper:#f3f0ea;--paper2:#e9e4da;--cream:#f7f4ee;--ink:#151515;--muted:#857e73;--line:#d8d1c4;
+  --night:#0b0e14;--night-ink:#e7e3db;--night-muted:#8b93a3;--night-line:#232a36;
+  --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+  --sans:'Jost','Helvetica Neue',Helvetica,Arial,sans-serif;
+  --pad:clamp(20px,4.2vw,72px);--gut:clamp(14px,2.2vw,36px);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+::selection{background:var(--ink);color:var(--paper)}
+:focus-visible{outline:1px solid currentColor;outline-offset:4px}
 
-  /* NAV */
-  nav{
-    position:fixed;top:0;left:0;right:0;z-index:100;
-    display:flex;justify-content:space-between;align-items:center;
-    padding:22px 40px;
-    mix-blend-mode:difference;color:#fff;
-  }
-  nav .brand{font-family:var(--sans);font-weight:500;letter-spacing:.32em;font-size:.82rem;text-transform:uppercase}
-  nav ul{display:flex;gap:34px;list-style:none}
-  nav a{color:inherit;text-decoration:none;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase}
-  nav a:hover{opacity:.55}
-  .menu-toggle{display:none;background:none;border:none;color:inherit;font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;cursor:pointer}
+/* progreso + nav */
+.prog{position:fixed;top:0;left:0;height:2px;width:100%;background:#fff;transform-origin:0 50%;transform:scaleX(0);z-index:120;mix-blend-mode:difference}
+nav{position:fixed;inset:0 0 auto 0;z-index:110;display:flex;justify-content:space-between;align-items:center;padding:20px var(--pad);color:#fff;mix-blend-mode:difference}
+nav .brand{font-family:var(--serif);font-size:1.7rem;letter-spacing:0;line-height:1;text-transform:none}
+nav ul{display:flex;gap:clamp(18px,2.6vw,40px);list-style:none}
+nav a{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase}
+nav a:hover{opacity:.55}
+.menu-btn{display:none;font-size:.7rem;letter-spacing:.24em;text-transform:uppercase}
 
-  /* HERO */
-  header.hero{
-    height:100vh;min-height:620px;
-    display:flex;flex-direction:column;justify-content:flex-end;
-    padding:0 40px 56px;
-    position:relative;overflow:hidden;
-    background:
-      linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.52)),
-      url('img/hero.jpg') center 32%/cover no-repeat;
-  }
-  header.hero .kicker{color:#fff;letter-spacing:.4em;text-transform:uppercase;font-size:.7rem;margin-bottom:18px;opacity:.9}
-  header.hero h1{
-    font-family:var(--serif);font-weight:300;color:#fff;
-    font-size:clamp(3.4rem,12vw,9.5rem);line-height:.92;letter-spacing:-.01em;
-  }
-  header.hero h1 em{font-style:italic;font-weight:300}
-  header.hero .sub{color:#fff;opacity:.92;margin-top:20px;max-width:34ch;font-size:.95rem;letter-spacing:.02em}
-  .scroll-hint{position:absolute;right:40px;bottom:56px;color:#fff;font-size:.66rem;letter-spacing:.25em;text-transform:uppercase;writing-mode:vertical-rl;opacity:.8}
+/* hero */
+.hero{min-height:100svh;padding:calc(76px + 2vh) var(--pad) var(--pad);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gut);align-content:space-between;row-gap:4vh}
+.hero-top{grid-column:1/-1;display:flex;justify-content:space-between;gap:20px;font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);padding-top:14px}
+.mast{grid-column:1 / span 8;font-family:var(--serif);font-weight:300;font-size:clamp(6.5rem,22vw,24rem);line-height:.78;white-space:nowrap;letter-spacing:-.045em;margin-left:-.04em}
+.hero-side{grid-column:9 / span 4;align-self:end;display:flex;flex-direction:column;gap:18px;padding-bottom:1.4vw}
+.hero-side p{font-family:var(--serif);font-size:clamp(1.25rem,1.9vw,1.75rem);line-height:1.2;font-style:italic}
+.hero-side a{font-size:.68rem;letter-spacing:.26em;text-transform:uppercase;border-bottom:1px solid var(--ink);align-self:flex-start;padding-bottom:3px}
+.hero-frames{grid-column:1/-1;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--gut);align-items:end}
+.hf{position:relative;overflow:hidden;display:block}
+.hf img{transition:transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.hf:hover img{transform:scale(1.04)}
+.hf span{position:absolute;left:12px;bottom:10px;color:#fff;font-size:.66rem;letter-spacing:.24em;mix-blend-mode:difference}
+.hf-a{grid-column:1 / span 6}.hf-b{grid-column:7 / span 3}.hf-c{grid-column:10 / span 3;margin-bottom:6vw}
 
-  /* SECTIONS */
-  section{padding:120px 40px}
-  .eyebrow{font-size:.7rem;letter-spacing:.34em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-  .section-title{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,5vw,3.4rem);line-height:1.02;margin-bottom:8px}
+/* índice */
+.index{padding:clamp(80px,12vw,180px) var(--pad) clamp(60px,8vw,120px)}
+.kicker,.ch-kicker{font-size:.68rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);margin-bottom:28px}
+.index ol{list-style:none;border-top:1px solid var(--line)}
+.index li a{display:grid;grid-template-columns:70px 1fr 300px 70px;align-items:baseline;gap:20px;padding:22px 0;border-bottom:1px solid var(--line);transition:padding .5s cubic-bezier(.2,.7,.2,1),color .3s}
+.ix-no,.ix-y{font-size:.75rem;letter-spacing:.18em;color:var(--muted);font-variant-numeric:tabular-nums}
+.ix-y{text-align:right}
+.ix-t{font-family:var(--serif);font-size:clamp(2rem,5.2vw,4.6rem);line-height:1;font-weight:300}
+.ix-c{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.index li a:hover{padding-left:18px}
+.index ol:hover li a{color:#b9b2a6}.index ol li a:hover{color:var(--ink)}
+.ix-prev{position:fixed;left:0;top:0;width:clamp(180px,17vw,260px);pointer-events:none;z-index:90;opacity:0;transform:translate(-50%,-50%) scale(.92);transition:opacity .35s,transform .35s}
+.ix-prev.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
 
-  /* WORK GRID */
-  .work-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:52px;flex-wrap:wrap;gap:16px}
-  .work-head p{max-width:42ch;color:var(--muted);font-size:.92rem}
-  .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:28px}
-  .project{position:relative;overflow:hidden;cursor:pointer;background:#ddd6ca}
-  .project .ph{aspect-ratio:3/4;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
-  .project.wide .ph{aspect-ratio:3/4}
-  .project:hover .ph{transform:scale(1.04)}
-  .project .meta{position:absolute;left:0;right:0;bottom:0;padding:22px;color:#fff;
-    background:linear-gradient(0deg,rgba(0,0,0,.55),transparent);
-    opacity:0;transform:translateY(8px);transition:.5s}
-  .project:hover .meta{opacity:1;transform:translateY(0)}
-  .project .meta .t{font-family:var(--serif);font-size:1.5rem;line-height:1}
-  .project .meta .s{font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;opacity:.85;margin-top:6px}
-  .c-7{grid-column:span 7}.c-5{grid-column:span 5}.c-6{grid-column:span 6}.c-4{grid-column:span 4}.c-8{grid-column:span 8}
-  /* placeholder palettes */
-  .p1{background:linear-gradient(140deg,#d9cfc0,#9c8f7e)}
-  .p2{background:linear-gradient(140deg,#c9b6a8,#8a6f63)}
-  .p3{background:linear-gradient(140deg,#cdd0cb,#7f8a82)}
-  .p4{background:linear-gradient(140deg,#e0d4c5,#b09a82)}
-  .p5{background:linear-gradient(140deg,#bfc2c9,#74798a)}
+/* capítulos */
+.ch{padding:clamp(70px,10vw,160px) var(--pad);position:relative}
+.ch.dark{background:var(--night);color:var(--night-ink)}
+.ch.cream{background:var(--cream)}
+.ch.paper{background:var(--paper2)}
+.ch-head{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gut);row-gap:18px;border-top:1px solid var(--line);padding-top:22px;margin-bottom:clamp(40px,6vw,96px);scroll-margin-top:40px}
+.dark .ch-head{border-color:var(--night-line)}
+.ch-no{grid-column:1 / span 3;font-family:var(--serif);font-size:clamp(4rem,9vw,8.5rem);line-height:.8;font-weight:300;display:flex;gap:.12em}
+.ch-no span{font-size:.22em;line-height:1;padding-top:.2em;letter-spacing:.1em}
+.ch-meta{grid-column:1 / span 3;grid-row:2;display:flex;flex-direction:column;gap:2px;font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.dark .ch-meta,.dark .micro,.dark .look{color:var(--night-muted)}
+.ch-title{grid-column:5 / span 8;grid-row:1;font-family:var(--serif);font-weight:300;font-size:clamp(2.8rem,7.4vw,7.4rem);line-height:.92;letter-spacing:-.015em}
+.ch-title em,.ix-t em,.doc-title em{font-style:italic}
+.ch-line{grid-column:5 / span 5;grid-row:2;font-family:var(--serif);font-style:italic;font-size:clamp(1.1rem,1.6vw,1.45rem);line-height:1.3;color:inherit;opacity:.8}
 
-  /* ABOUT */
-  .about{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
-  .about .portrait{aspect-ratio:4/5;background:linear-gradient(140deg,#d2c8ba,#8c8074)}
-  .about h2{font-family:var(--serif);font-weight:300;font-size:clamp(1.8rem,4vw,2.8rem);line-height:1.05;margin-bottom:24px}
-  .about p{color:#3a3733;margin-bottom:18px;font-size:1rem;max-width:50ch}
-  .about .facts{display:flex;gap:48px;margin-top:34px;flex-wrap:wrap}
-  .about .facts .n{font-family:var(--serif);font-size:2.4rem;line-height:1}
-  .about .facts .l{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gut);row-gap:var(--gut);margin-top:var(--gut);align-items:start}
+.f{position:relative;overflow:hidden;cursor:zoom-in;background:rgba(127,127,127,.08)}
+.f img{transition:transform 1.4s cubic-bezier(.2,.7,.2,1),opacity .6s}
+.f:hover img{transform:scale(1.035)}
+.drop{margin-top:clamp(40px,9vw,170px)}.drop-s{margin-top:clamp(24px,4.5vw,80px)}.end{align-self:end}
+.bleed{margin:var(--gut) calc(var(--pad) * -1) 0;width:auto}
+.micro{font-family:var(--serif);font-style:italic;font-size:clamp(1.25rem,2.1vw,1.9rem);line-height:1.2;color:var(--muted);padding:clamp(30px,6vw,90px) 0}
+.look{font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;color:var(--muted);border-top:1px solid var(--line);padding-top:12px;margin-top:clamp(40px,7vw,110px)}
 
-  /* CONTACT */
-  .contact{text-align:center;border-top:1px solid var(--line)}
-  .contact h2{font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,8vw,5.5rem);line-height:1;margin:10px 0 28px}
-  .contact a.mail{font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,4vw,2.2rem);color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line);padding-bottom:4px}
-  .contact a.mail:hover{border-color:var(--ink)}
-  .socials{display:flex;gap:30px;justify-content:center;margin-top:40px;list-style:none}
-  .socials a{color:var(--muted);text-decoration:none;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase}
-  .socials a:hover{color:var(--ink)}
+/* hoja de contactos */
+.cs{margin-top:clamp(70px,10vw,150px);background:#1a1a1a;color:#d9d4ca;padding:clamp(16px,2.4vw,32px)}
+.cs-head{display:flex;justify-content:space-between;font-size:.66rem;letter-spacing:.3em;text-transform:uppercase;margin-bottom:18px;color:#9c968b}
+.cs-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:12px 8px}
+.cs-i{display:flex;flex-direction:column;gap:5px;cursor:zoom-in}
+.cs-i img{aspect-ratio:2/3;object-fit:cover;opacity:.82;transition:opacity .3s,transform .3s}
+.cs-i:hover img{opacity:1;transform:translateY(-2px)}
+.cs-i span{font-size:.6rem;letter-spacing:.18em;color:#8d877c;font-variant-numeric:tabular-nums;text-align:left}
+.cs-i span::before{content:'NPH '}
 
-  footer{padding:30px 40px;display:flex;justify-content:space-between;border-top:1px solid var(--line);color:var(--muted);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;flex-wrap:wrap;gap:10px}
+/* escritos */
+.docs{display:grid;grid-template-columns:1fr 1fr;gap:var(--gut)}
+.doc{background:var(--paper);border:1px solid var(--line);padding:clamp(22px,3vw,44px);display:flex;flex-direction:column;gap:clamp(18px,2.4vw,30px);min-height:clamp(420px,46vw,640px);scroll-margin-top:60px;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.doc:hover{transform:translateY(-6px)}
+.doc-b{background:var(--ink);color:var(--paper);border-color:var(--ink);margin-top:clamp(0px,8vw,140px)}
+.doc-top,.doc-foot{display:flex;justify-content:space-between;gap:12px;font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;opacity:.65}
+.doc-big{font-family:var(--serif);font-weight:300;font-size:clamp(3.6rem,9.5vw,9rem);line-height:.85;letter-spacing:-.03em;margin-top:auto}
+.doc-big i{font-style:italic;opacity:.45}
+.doc-title{font-family:var(--serif);font-weight:300;font-size:clamp(1.8rem,3.2vw,2.8rem);line-height:1}
+.doc-line{font-family:var(--serif);font-style:italic;font-size:1.15rem;opacity:.75;max-width:30ch}
+.doc-foot{border-top:1px solid currentColor;padding-top:12px;opacity:.45}
 
-  @media(max-width:820px){
-    nav{padding:18px 22px}
-    nav ul{display:none}
-    .menu-toggle{display:block}
-    section{padding:80px 22px}
-    header.hero{padding:0 22px 40px}
-    .scroll-hint{display:none}
-    .grid{gap:16px}
-    .c-7,.c-5,.c-6,.c-4,.c-8,.project{grid-column:span 12}
-    .about{grid-template-columns:1fr;gap:36px}
-  }
+/* sobre mí */
+.about{padding:clamp(80px,12vw,180px) var(--pad);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gut);row-gap:40px;align-items:end}
+.about .f{grid-column:1 / span 4}
+.about-txt{grid-column:6 / span 6}
+.about h2{font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,5.6vw,5.4rem);line-height:.95;margin-bottom:28px}
+.about h2 em{font-style:italic}
+.about p{font-size:1.02rem;max-width:46ch;color:#3b3833;margin-bottom:14px}
+.facts{margin-top:36px;border-top:1px solid var(--line);display:grid;grid-template-columns:110px 1fr;font-size:.82rem}
+.facts dt,.facts dd{padding:12px 0;border-bottom:1px solid var(--line)}
+.facts dt{font-size:.64rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);padding-top:15px}
+
+/* contacto + pie */
+.contact{padding:clamp(80px,12vw,180px) var(--pad) 40px;background:var(--ink);color:var(--paper);text-align:center}
+.contact .kicker{color:#8f897e}
+.contact h2{font-family:var(--serif);font-weight:300;font-size:clamp(3rem,10vw,9.5rem);line-height:.9;letter-spacing:-.02em}
+.contact h2 em{font-style:italic}
+.contact .mail{display:inline-block;margin-top:40px;font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,3vw,2.4rem);border-bottom:1px solid #555;padding-bottom:4px;transition:border-color .3s}
+.contact .mail:hover{border-color:var(--paper)}
+.socials{display:flex;justify-content:center;gap:34px;list-style:none;margin-top:44px}
+.socials a{font-size:.68rem;letter-spacing:.24em;text-transform:uppercase;color:#a29c90}
+.socials a:hover{color:var(--paper)}
+.foot{margin-top:clamp(80px,12vw,180px);display:flex;justify-content:space-between;align-items:end;gap:20px;border-top:1px solid #2c2c2c;padding-top:18px;font-size:.64rem;letter-spacing:.2em;text-transform:uppercase;color:#7d776d;text-align:left}
+.foot b{font-family:var(--serif);font-weight:300;font-size:clamp(4rem,14vw,13rem);line-height:.75;letter-spacing:-.04em;color:var(--paper);text-transform:none}
+
+/* lightbox */
+.lb{position:fixed;inset:0;z-index:200;background:rgba(10,10,10,.97);color:#e9e5dd;display:grid;grid-template-rows:auto 1fr auto;opacity:0;visibility:hidden;transition:opacity .35s,visibility .35s}
+.lb.on{opacity:1;visibility:visible}
+.lb-bar{display:flex;justify-content:space-between;align-items:center;padding:16px var(--pad);font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:#9a9489}
+.lb-stage{position:relative;display:flex;align-items:center;justify-content:center;min-height:0;padding:0 clamp(8px,5vw,90px)}
+.lb-stage img{max-width:100%;max-height:calc(100svh - 120px);width:auto;height:auto;object-fit:contain;transition:opacity .25s}
+.lb-nav{position:absolute;top:0;bottom:0;width:30%;display:flex;align-items:center;font-size:1.8rem;font-family:var(--serif);padding:0 2vw;color:#bdb7ac}
+.lb-prev{left:0;justify-content:flex-start;cursor:w-resize}.lb-next{right:0;justify-content:flex-end;cursor:e-resize}
+.lb-close{font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:#d8d3ca}
+.lb-cap{padding:12px var(--pad) 18px;font-family:var(--serif);font-style:italic;font-size:1.05rem;color:#a9a397;text-align:center}
+
+/* cursor "Ver" */
+.cur{position:fixed;left:0;top:0;width:74px;height:74px;margin:-37px 0 0 -37px;border-radius:50%;background:var(--paper);color:var(--ink);display:grid;place-items:center;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;pointer-events:none;z-index:150;transform:scale(0);transition:transform .3s cubic-bezier(.2,.7,.2,1)}
+.cur.on{transform:scale(1)}
+
+/* reveal */
+.js .rv{opacity:0;transform:translateY(34px);transition:opacity 1s cubic-bezier(.2,.7,.2,1),transform 1.1s cubic-bezier(.2,.7,.2,1)}
+.js .rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .rv{opacity:1;transform:none;transition:none}.f img,.hf img{transition:none}}
+
+/* responsive */
+@media (max-width:1000px){
+  .index li a{grid-template-columns:44px 1fr 60px}.ix-c{display:none}
+  .hero-side{grid-column:1/-1;padding-bottom:0}.mast{grid-column:1/-1}
+}
+@media (max-width:820px){
+  nav{padding:16px 20px}
+  nav ul{display:none;position:fixed;top:54px;right:20px;flex-direction:column;gap:14px;text-align:right}
+  nav ul.open{display:flex}
+  .menu-btn{display:block}
+  .hero{row-gap:28px}
+  .hero-top span:nth-child(2){display:none}
+  .hero-frames{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .hf-a{grid-column:1/-1}.hf-b{grid-column:1}.hf-c{grid-column:2;margin-bottom:0;margin-top:14vw}
+  .ch-head{grid-template-columns:1fr}
+  .ch-no,.ch-meta,.ch-title,.ch-line{grid-column:1 !important;grid-row:auto !important}
+  .ch-meta{flex-direction:row;gap:14px}
+  .row{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+  .row>.f{grid-column:auto / span 1 !important;margin-top:0}
+  .row>figure:only-of-type,.row>figure:nth-of-type(3):last-of-type,.row>.f.land{grid-column:1 / -1 !important}
+  .row>.f.drop,.row>.f.drop-s{margin-top:10vw}
+  .row>.f.land.drop,.row>.f.land.drop-s{margin-top:0}
+  .row>.micro,.row>.look{grid-column:1 / -1 !important}
+  .bleed{margin-left:-20px;margin-right:-20px}
+  .docs{grid-template-columns:1fr}.doc-b{margin-top:0}
+  .about .f,.about-txt{grid-column:1/-1}.about .f{max-width:420px}
+  .cs-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:10px 6px}
+  .foot{flex-direction:column;align-items:flex-start}
+  .cur{display:none}
+}
 </style>
 </head>
 <body>
-
-<nav>
-  <div class="brand">Male</div>
+<div class="prog" aria-hidden="true"></div>
+<nav aria-label="Principal">
+  <a class="brand" href="#top">Male</a>
   <ul>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#about">About</a></li>
-    <li><a href="#contact">Contact</a></li>
+    <li><a href="#indice">Índice</a></li>
+    <li><a href="#n01">Trabajos</a></li>
+    <li><a href="#sobre-mi">Sobre mí</a></li>
+    <li><a href="#contacto">Contacto</a></li>
   </ul>
-  <button class="menu-toggle">Menu</button>
+  <button class="menu-btn" aria-expanded="false" aria-label="Abrir menú">Menú</button>
 </nav>
 
-<header class="hero">
-  <div class="kicker">Fashion Design — Editorial</div>
-  <h1>Male</h1>
-  <p class="sub">Diseño de moda, dirección y styling. Una selección de editoriales y shootings.</p>
-  <div class="scroll-hint">Scroll</div>
+<header class="hero" id="top">
+  <div class="hero-top"><span>Portfolio</span><span>Diseño y gestión de estéticas para la moda</span><span>Buenos Aires — 2026</span></div>
+  <h1 class="mast">Male</h1>
+  <div class="hero-side">
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <a href="#indice">Ver índice ↓</a>
+  </div>
+  <div class="hero-frames">
+    <a class="hf hf-a" href="#n01"><img class="" src="fotos/alien/01-portada-s.webp" srcset="fotos/alien/01-portada-s.webp 900w, fotos/alien/01-portada-l.webp 2000w" sizes="(max-width: 820px) 100vw, 50vw" width="2000" height="1333" loading="eager" fetchpriority="high" decoding="async" alt=""><span>Nº 01</span></a>
+    <a class="hf hf-b" href="#n02"><img class="" src="fotos/latas/03-s.webp" srcset="fotos/latas/03-s.webp 600w, fotos/latas/03-l.webp 1333w" sizes="(max-width: 820px) 100vw, 25vw" width="1333" height="2000" loading="eager" fetchpriority="high" decoding="async" alt=""><span>Nº 02</span></a>
+    <a class="hf hf-c" href="#n03"><img class="" src="fotos/tustyle/0634-s.webp" srcset="fotos/tustyle/0634-s.webp 600w, fotos/tustyle/0634-l.webp 1333w" sizes="(max-width: 820px) 100vw, 25vw" width="1333" height="2000" loading="eager" fetchpriority="high" decoding="async" alt=""><span>Nº 03</span></a>
+  </div>
 </header>
 
-<section id="work">
-  <div class="work-head">
-    <div>
-      <div class="eyebrow">Selected Work</div>
-      <h2 class="section-title">Editoriales & Shootings</h2>
-    </div>
-    <p>Cada proyecto es una historia visual: concepto, dirección, prendas y producción fotográfica.</p>
-  </div>
+<section class="index" id="indice" aria-label="Índice">
+  <div class="kicker rv">Índice — 5 trabajos</div>
+  <ol><li class="rv"><a href="#n01" data-prev="fotos/alien/01-portada-s.webp"><span class="ix-no">01</span><span class="ix-t">Lorem <em>ipsum</em></span><span class="ix-c">Fotografía de moda · Beauty</span><span class="ix-y">2025</span></a></li><li class="rv"><a href="#n02" data-prev="fotos/latas/01-portada-s.webp"><span class="ix-no">02</span><span class="ix-t">Dolor <em>sit amet</em></span><span class="ix-c">Fotografía de moda · Editorial</span><span class="ix-y">2025</span></a></li><li class="rv"><a href="#n03" data-prev="fotos/tustyle/0634-s.webp"><span class="ix-no">03</span><span class="ix-t"><em>Consectetur</em> elit</span><span class="ix-c">Campaña · TuStyle by Malti</span><span class="ix-y">2026</span></a></li><li class="rv"><a href="#n04" data-prev=""><span class="ix-no">04</span><span class="ix-t">Adipiscing <em>sed</em></span><span class="ix-c">Ensayo · Università di Bologna</span><span class="ix-y">2025</span></a></li><li class="rv"><a href="#n05" data-prev=""><span class="ix-no">05</span><span class="ix-t">Eiusmod <em>tempor</em></span><span class="ix-c">Investigación · UADE</span><span class="ix-y">2026</span></a></li></ol>
+  <div class="ix-prev" aria-hidden="true"><img alt=""></div>
+</section>
 
-  <div class="grid">
-    <article class="project c-7">
-      <div class="ph"><img src="img/feca-01.jpg" alt="Editorial Male" loading="lazy"></div>
-      <div class="meta"><div class="t">Lorem Ipsum</div><div class="s">Editorial · 2026</div></div>
-    </article>
-    <article class="project c-5">
-      <div class="ph"><img src="img/museo-01.jpg" alt="Editorial Male" loading="lazy"></div>
-      <div class="meta"><div class="t">Dolor Sit</div><div class="s">Editorial · 2026</div></div>
-    </article>
-    <article class="project c-5">
-      <div class="ph"><img src="img/cafe.jpg" alt="Editorial Male" loading="lazy"></div>
-      <div class="meta"><div class="t">Amet</div><div class="s">Editorial · 2025</div></div>
-    </article>
-    <article class="project c-7">
-      <div class="ph"><img src="img/museo-02.jpg" alt="Editorial Male" loading="lazy"></div>
-      <div class="meta"><div class="t">Consectetur</div><div class="s">Editorial · 2025</div></div>
-    </article>
-    <article class="project c-7">
-      <div class="ph"><img src="img/balcon.jpg" alt="Editorial Male" loading="lazy"></div>
-      <div class="meta"><div class="t">Adipiscing</div><div class="s">Editorial · 2025</div></div>
-    </article>
-    <article class="project c-5">
-      <div class="ph"><img src="img/bar.jpg" alt="Editorial Male" loading="lazy"></div>
-      <div class="meta"><div class="t">Elit Sed</div><div class="s">Editorial · 2025</div></div>
-    </article>
-    <article class="project c-5">
-      <div class="ph"><img src="img/showroom.jpg" alt="Editorial Male" loading="lazy"></div>
-      <div class="meta"><div class="t">Tempor</div><div class="s">Editorial · 2024</div></div>
-    </article>
-    <article class="project c-7">
-      <div class="ph"><img src="img/rojo.jpg" alt="Editorial Male" loading="lazy"></div>
-      <div class="meta"><div class="t">Incididunt</div><div class="s">Editorial · 2024</div></div>
-    </article>
-    <article class="project c-6">
-      <div class="ph"><img src="img/noche.jpg" alt="Editorial Male" loading="lazy"></div>
-      <div class="meta"><div class="t">Labore</div><div class="s">Editorial · 2024</div></div>
-    </article>
-    <article class="project c-6">
-      <div class="ph"><img src="img/feca-02.jpg" alt="Editorial Male" loading="lazy"></div>
-      <div class="meta"><div class="t">Magna</div><div class="s">Editorial · 2024</div></div>
-    </article>
+<main>
+
+<section class="ch dark" aria-labelledby="t01">
+  <header class="ch-head rv" id="n01">
+    <div class="ch-no"><span>Nº</span>01</div>
+    <div class="ch-meta"><span>Fotografía de moda · Beauty</span><span>2025</span></div>
+    <h2 class="ch-title" id="t01">Lorem <em>ipsum</em></h2>
+    <p class="ch-line">Lorem ipsum dolor sit amet, consectetur adipiscing.</p>
+  </header>
+  <figure class="f bleed rv" data-g="alien" data-k="01-portada" data-l="fotos/alien/01-portada-l.webp"><img class="" src="fotos/alien/01-portada-s.webp" srcset="fotos/alien/01-portada-s.webp 900w, fotos/alien/01-portada-l.webp 2000w" sizes="(max-width: 820px) 100vw, 100vw" width="2000" height="1333" loading="lazy" decoding="async" alt=""></figure>
+  <div class="row "><figure class="f rv  land" style="grid-column:1 / span 7;" data-g="alien" data-k="02" data-l="fotos/alien/02-l.webp"><img class="" src="fotos/alien/02-s.webp" srcset="fotos/alien/02-s.webp 900w, fotos/alien/02-l.webp 2000w" sizes="(max-width: 820px) 100vw, 58vw" width="2000" height="1333" loading="lazy" decoding="async" alt=""></figure><figure class="f rv drop land" style="grid-column:8 / span 5;" data-g="alien" data-k="03" data-l="fotos/alien/03-l.webp"><img class="" src="fotos/alien/03-s.webp" srcset="fotos/alien/03-s.webp 900w, fotos/alien/03-l.webp 2000w" sizes="(max-width: 820px) 100vw, 42vw" width="2000" height="1333" loading="lazy" decoding="async" alt=""></figure></div>
+  <div class="row "><p class="micro rv" style="grid-column:2 / span 5">— Lorem ipsum dolor, sit amet.</p></div>
+  <div class="row "><figure class="f rv  land" style="grid-column:3 / span 8;" data-g="alien" data-k="04" data-l="fotos/alien/04-l.webp"><img class="" src="fotos/alien/04-s.webp" srcset="fotos/alien/04-s.webp 900w, fotos/alien/04-l.webp 2000w" sizes="(max-width: 820px) 100vw, 67vw" width="2000" height="1333" loading="lazy" decoding="async" alt=""></figure></div>
+  <div class="row "><figure class="f rv  land" style="grid-column:1 / span 6;" data-g="alien" data-k="05" data-l="fotos/alien/05-l.webp"><img class="" src="fotos/alien/05-s.webp" srcset="fotos/alien/05-s.webp 900w, fotos/alien/05-l.webp 2000w" sizes="(max-width: 820px) 100vw, 50vw" width="2000" height="1333" loading="lazy" decoding="async" alt=""></figure><figure class="f rv drop land" style="grid-column:7 / span 6;" data-g="alien" data-k="06" data-l="fotos/alien/06-l.webp"><img class="" src="fotos/alien/06-s.webp" srcset="fotos/alien/06-s.webp 900w, fotos/alien/06-l.webp 2000w" sizes="(max-width: 820px) 100vw, 50vw" width="2000" height="1333" loading="lazy" decoding="async" alt=""></figure></div>
+  <div class="row "><figure class="f rv  land" style="grid-column:2 / span 5;" data-g="alien" data-k="08" data-l="fotos/alien/08-l.webp"><img class="" src="fotos/alien/08-s.webp" srcset="fotos/alien/08-s.webp 900w, fotos/alien/08-l.webp 2000w" sizes="(max-width: 820px) 100vw, 42vw" width="2000" height="1333" loading="lazy" decoding="async" alt=""></figure><figure class="f rv drop-s land" style="grid-column:8 / span 5;" data-g="alien" data-k="11" data-l="fotos/alien/11-l.webp"><img class="" src="fotos/alien/11-s.webp" srcset="fotos/alien/11-s.webp 900w, fotos/alien/11-l.webp 2000w" sizes="(max-width: 820px) 100vw, 42vw" width="2000" height="1333" loading="lazy" decoding="async" alt=""></figure></div>
+  <figure class="f bleed rv" data-g="alien" data-k="07" data-l="fotos/alien/07-l.webp"><img class="" src="fotos/alien/07-s.webp" srcset="fotos/alien/07-s.webp 900w, fotos/alien/07-l.webp 2000w" sizes="(max-width: 820px) 100vw, 100vw" width="2000" height="1320" loading="lazy" decoding="async" alt=""></figure>
+  <div class="row "><p class="micro rv" style="grid-column:7 / span 5">— Consectetur adipiscing elit.</p></div>
+  <div class="row "><figure class="f rv  land" style="grid-column:1 / span 6;" data-g="alien" data-k="09" data-l="fotos/alien/09-l.webp"><img class="" src="fotos/alien/09-s.webp" srcset="fotos/alien/09-s.webp 900w, fotos/alien/09-l.webp 2000w" sizes="(max-width: 820px) 100vw, 50vw" width="2000" height="1333" loading="lazy" decoding="async" alt=""></figure><figure class="f rv drop land" style="grid-column:7 / span 6;" data-g="alien" data-k="10" data-l="fotos/alien/10-l.webp"><img class="" src="fotos/alien/10-s.webp" srcset="fotos/alien/10-s.webp 900w, fotos/alien/10-l.webp 2000w" sizes="(max-width: 820px) 100vw, 50vw" width="2000" height="1333" loading="lazy" decoding="async" alt=""></figure></div>
+</section>
+
+<section class="ch" aria-labelledby="t02">
+  <header class="ch-head rv" id="n02">
+    <div class="ch-no"><span>Nº</span>02</div>
+    <div class="ch-meta"><span>Fotografía de moda · Editorial</span><span>2025</span></div>
+    <h2 class="ch-title" id="t02">Dolor <em>sit amet</em></h2>
+    <p class="ch-line">Sed do eiusmod tempor, incididunt ut labore.</p>
+  </header>
+  <div class="row "><figure class="f rv " style="grid-column:1 / span 6;" data-g="latas" data-k="01-portada" data-l="fotos/latas/01-portada-l.webp"><img class="" src="fotos/latas/01-portada-s.webp" srcset="fotos/latas/01-portada-s.webp 600w, fotos/latas/01-portada-l.webp 1333w" sizes="(max-width: 820px) 100vw, 50vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure><figure class="f rv drop" style="grid-column:8 / span 5;" data-g="latas" data-k="02" data-l="fotos/latas/02-l.webp"><img class="" src="fotos/latas/02-s.webp" srcset="fotos/latas/02-s.webp 745w, fotos/latas/02-l.webp 1655w" sizes="(max-width: 820px) 100vw, 42vw" width="1655" height="2000" loading="lazy" decoding="async" alt=""></figure></div>
+  <div class="row "><p class="micro rv" style="grid-column:8 / span 5">— Consectetur adipiscing elit, sed do.</p></div>
+  <div class="row "><figure class="f rv " style="grid-column:1 / span 4;" data-g="latas" data-k="03" data-l="fotos/latas/03-l.webp"><img class="" src="fotos/latas/03-s.webp" srcset="fotos/latas/03-s.webp 600w, fotos/latas/03-l.webp 1333w" sizes="(max-width: 820px) 100vw, 33vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure><figure class="f rv drop-s" style="grid-column:5 / span 4;" data-g="latas" data-k="05" data-l="fotos/latas/05-l.webp"><img class="" src="fotos/latas/05-s.webp" srcset="fotos/latas/05-s.webp 600w, fotos/latas/05-l.webp 1333w" sizes="(max-width: 820px) 100vw, 33vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure><figure class="f rv " style="grid-column:9 / span 4;" data-g="latas" data-k="06" data-l="fotos/latas/06-l.webp"><img class="" src="fotos/latas/06-s.webp" srcset="fotos/latas/06-s.webp 600w, fotos/latas/06-l.webp 1333w" sizes="(max-width: 820px) 100vw, 33vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure></div>
+  <div class="row "><figure class="f rv " style="grid-column:2 / span 6;" data-g="latas" data-k="04" data-l="fotos/latas/04-l.webp"><img class="" src="fotos/latas/04-s.webp" srcset="fotos/latas/04-s.webp 900w, fotos/latas/04-l.webp 2000w" sizes="(max-width: 820px) 100vw, 50vw" width="2000" height="1974" loading="lazy" decoding="async" alt=""></figure><figure class="f rv drop" style="grid-column:9 / span 4;" data-g="latas" data-k="07" data-l="fotos/latas/07-l.webp"><img class="" src="fotos/latas/07-s.webp" srcset="fotos/latas/07-s.webp 600w, fotos/latas/07-l.webp 1333w" sizes="(max-width: 820px) 100vw, 33vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure></div>
+  <div class="row "><figure class="f rv " style="grid-column:4 / span 6;" data-g="latas" data-k="08" data-l="fotos/latas/08-l.webp"><img class="" src="fotos/latas/08-s.webp" srcset="fotos/latas/08-s.webp 900w, fotos/latas/08-l.webp 2000w" sizes="(max-width: 820px) 100vw, 50vw" width="2000" height="2000" loading="lazy" decoding="async" alt=""></figure></div>
+</section>
+
+<section class="ch cream" aria-labelledby="t03">
+  <header class="ch-head rv" id="n03">
+    <div class="ch-no"><span>Nº</span>03</div>
+    <div class="ch-meta"><span>Campaña · TuStyle by Malti</span><span>2026</span></div>
+    <h2 class="ch-title" id="t03"><em>Consectetur</em> elit</h2>
+    <p class="ch-line">Ut enim ad minim veniam, quis nostrud.</p>
+  </header>
+  <div class="row "><p class="look rv" style="grid-column:1 / span 12">Look 01</p><figure class="f rv " style="grid-column:1 / span 5;" data-g="tustyle" data-k="0011" data-l="fotos/tustyle/0011-l.webp"><img class="" src="fotos/tustyle/0011-s.webp" srcset="fotos/tustyle/0011-s.webp 600w, fotos/tustyle/0011-l.webp 1333w" sizes="(max-width: 820px) 100vw, 42vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure><figure class="f rv drop" style="grid-column:6 / span 4;" data-g="tustyle" data-k="0067" data-l="fotos/tustyle/0067-l.webp"><img class="" src="fotos/tustyle/0067-s.webp" srcset="fotos/tustyle/0067-s.webp 600w, fotos/tustyle/0067-l.webp 1333w" sizes="(max-width: 820px) 100vw, 33vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure><figure class="f rv end" style="grid-column:10 / span 3;" data-g="tustyle" data-k="0025" data-l="fotos/tustyle/0025-l.webp"><img class="" src="fotos/tustyle/0025-s.webp" srcset="fotos/tustyle/0025-s.webp 600w, fotos/tustyle/0025-l.webp 1333w" sizes="(max-width: 820px) 100vw, 25vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure></div>
+  <div class="row "><p class="look rv" style="grid-column:1 / span 12">Look 02</p><figure class="f rv end land" style="grid-column:1 / span 8;" data-g="tustyle" data-k="0275" data-l="fotos/tustyle/0275-l.webp"><img class="" src="fotos/tustyle/0275-s.webp" srcset="fotos/tustyle/0275-s.webp 900w, fotos/tustyle/0275-l.webp 2000w" sizes="(max-width: 820px) 100vw, 67vw" width="2000" height="1333" loading="lazy" decoding="async" alt=""></figure><figure class="f rv " style="grid-column:9 / span 4;" data-g="tustyle" data-k="0155" data-l="fotos/tustyle/0155-l.webp"><img class="" src="fotos/tustyle/0155-s.webp" srcset="fotos/tustyle/0155-s.webp 600w, fotos/tustyle/0155-l.webp 1333w" sizes="(max-width: 820px) 100vw, 33vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure></div>
+  <div class="row "><p class="micro rv" style="grid-column:2 / span 5">— Quis nostrud exercitation ullamco.</p></div>
+  <div class="row "><p class="look rv" style="grid-column:1 / span 12">Look 03</p><figure class="f rv  land" style="grid-column:1 / span 12;" data-g="tustyle" data-k="0600" data-l="fotos/tustyle/0600-l.webp"><img class="" src="fotos/tustyle/0600-s.webp" srcset="fotos/tustyle/0600-s.webp 900w, fotos/tustyle/0600-l.webp 2000w" sizes="(max-width: 820px) 100vw, 100vw" width="2000" height="1333" loading="lazy" decoding="async" alt=""></figure></div>
+  <div class="row "><figure class="f rv " style="grid-column:1 / span 4;" data-g="tustyle" data-k="0634" data-l="fotos/tustyle/0634-l.webp"><img class="" src="fotos/tustyle/0634-s.webp" srcset="fotos/tustyle/0634-s.webp 600w, fotos/tustyle/0634-l.webp 1333w" sizes="(max-width: 820px) 100vw, 33vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure><figure class="f rv drop" style="grid-column:5 / span 4;" data-g="tustyle" data-k="0437" data-l="fotos/tustyle/0437-l.webp"><img class="" src="fotos/tustyle/0437-s.webp" srcset="fotos/tustyle/0437-s.webp 600w, fotos/tustyle/0437-l.webp 1333w" sizes="(max-width: 820px) 100vw, 33vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure><figure class="f rv " style="grid-column:9 / span 4;" data-g="tustyle" data-k="0372" data-l="fotos/tustyle/0372-l.webp"><img class="" src="fotos/tustyle/0372-s.webp" srcset="fotos/tustyle/0372-s.webp 600w, fotos/tustyle/0372-l.webp 1333w" sizes="(max-width: 820px) 100vw, 33vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure></div>
+  <div class="row "><p class="look rv" style="grid-column:1 / span 12">Look 04</p><figure class="f rv " style="grid-column:1 / span 5;" data-g="tustyle" data-k="0739" data-l="fotos/tustyle/0739-l.webp"><img class="" src="fotos/tustyle/0739-s.webp" srcset="fotos/tustyle/0739-s.webp 600w, fotos/tustyle/0739-l.webp 1333w" sizes="(max-width: 820px) 100vw, 42vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure><figure class="f rv drop" style="grid-column:6 / span 4;" data-g="tustyle" data-k="0871" data-l="fotos/tustyle/0871-l.webp"><img class="" src="fotos/tustyle/0871-s.webp" srcset="fotos/tustyle/0871-s.webp 600w, fotos/tustyle/0871-l.webp 1333w" sizes="(max-width: 820px) 100vw, 33vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure><figure class="f rv end" style="grid-column:10 / span 3;" data-g="tustyle" data-k="0765" data-l="fotos/tustyle/0765-l.webp"><img class="" src="fotos/tustyle/0765-s.webp" srcset="fotos/tustyle/0765-s.webp 600w, fotos/tustyle/0765-l.webp 1333w" sizes="(max-width: 820px) 100vw, 25vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure></div>
+  <div class="row "><p class="micro rv" style="grid-column:7 / span 5">— Laboris nisi ut aliquip ex ea.</p></div>
+  <div class="row "><p class="look rv" style="grid-column:1 / span 12">Look 05</p><figure class="f rv " style="grid-column:2 / span 4;" data-g="tustyle" data-k="1017" data-l="fotos/tustyle/1017-l.webp"><img class="" src="fotos/tustyle/1017-s.webp" srcset="fotos/tustyle/1017-s.webp 600w, fotos/tustyle/1017-l.webp 1333w" sizes="(max-width: 820px) 100vw, 33vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure><figure class="f rv drop" style="grid-column:7 / span 4;" data-g="tustyle" data-k="1047" data-l="fotos/tustyle/1047-l.webp"><img class="" src="fotos/tustyle/1047-s.webp" srcset="fotos/tustyle/1047-s.webp 600w, fotos/tustyle/1047-l.webp 1333w" sizes="(max-width: 820px) 100vw, 33vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure></div>
+  <div class="row "><p class="look rv" style="grid-column:1 / span 12">Look 06</p><figure class="f rv " style="grid-column:1 / span 4;" data-g="tustyle" data-k="1124" data-l="fotos/tustyle/1124-l.webp"><img class="" src="fotos/tustyle/1124-s.webp" srcset="fotos/tustyle/1124-s.webp 600w, fotos/tustyle/1124-l.webp 1333w" sizes="(max-width: 820px) 100vw, 33vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure><figure class="f rv drop-s" style="grid-column:5 / span 4;" data-g="tustyle" data-k="1140" data-l="fotos/tustyle/1140-l.webp"><img class="" src="fotos/tustyle/1140-s.webp" srcset="fotos/tustyle/1140-s.webp 600w, fotos/tustyle/1140-l.webp 1333w" sizes="(max-width: 820px) 100vw, 33vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure><figure class="f rv " style="grid-column:9 / span 4;" data-g="tustyle" data-k="1115" data-l="fotos/tustyle/1115-l.webp"><img class="" src="fotos/tustyle/1115-s.webp" srcset="fotos/tustyle/1115-s.webp 600w, fotos/tustyle/1115-l.webp 1333w" sizes="(max-width: 820px) 100vw, 33vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure></div>
+  <div class="cs rv">
+    <div class="cs-head"><span>Hoja de contactos</span><span>57 tomas</span></div>
+    <div class="cs-grid"><button class="cs-i" data-g="tustyle" data-k="0001" data-l="fotos/tustyle/0001-l.webp" aria-label="Ver toma 0001"><img src="fotos/tustyle/0001-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0001</span></button><button class="cs-i" data-g="tustyle" data-k="0011" data-l="fotos/tustyle/0011-l.webp" aria-label="Ver toma 0011"><img src="fotos/tustyle/0011-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0011</span></button><button class="cs-i" data-g="tustyle" data-k="0017" data-l="fotos/tustyle/0017-l.webp" aria-label="Ver toma 0017"><img src="fotos/tustyle/0017-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0017</span></button><button class="cs-i" data-g="tustyle" data-k="0025" data-l="fotos/tustyle/0025-l.webp" aria-label="Ver toma 0025"><img src="fotos/tustyle/0025-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0025</span></button><button class="cs-i" data-g="tustyle" data-k="0029" data-l="fotos/tustyle/0029-l.webp" aria-label="Ver toma 0029"><img src="fotos/tustyle/0029-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0029</span></button><button class="cs-i" data-g="tustyle" data-k="0059" data-l="fotos/tustyle/0059-l.webp" aria-label="Ver toma 0059"><img src="fotos/tustyle/0059-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0059</span></button><button class="cs-i" data-g="tustyle" data-k="0067" data-l="fotos/tustyle/0067-l.webp" aria-label="Ver toma 0067"><img src="fotos/tustyle/0067-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0067</span></button><button class="cs-i" data-g="tustyle" data-k="0084" data-l="fotos/tustyle/0084-l.webp" aria-label="Ver toma 0084"><img src="fotos/tustyle/0084-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0084</span></button><button class="cs-i" data-g="tustyle" data-k="0098" data-l="fotos/tustyle/0098-l.webp" aria-label="Ver toma 0098"><img src="fotos/tustyle/0098-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0098</span></button><button class="cs-i" data-g="tustyle" data-k="0116" data-l="fotos/tustyle/0116-l.webp" aria-label="Ver toma 0116"><img src="fotos/tustyle/0116-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0116</span></button><button class="cs-i" data-g="tustyle" data-k="0123" data-l="fotos/tustyle/0123-l.webp" aria-label="Ver toma 0123"><img src="fotos/tustyle/0123-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0123</span></button><button class="cs-i" data-g="tustyle" data-k="0139" data-l="fotos/tustyle/0139-l.webp" aria-label="Ver toma 0139"><img src="fotos/tustyle/0139-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0139</span></button><button class="cs-i" data-g="tustyle" data-k="0155" data-l="fotos/tustyle/0155-l.webp" aria-label="Ver toma 0155"><img src="fotos/tustyle/0155-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0155</span></button><button class="cs-i" data-g="tustyle" data-k="0275" data-l="fotos/tustyle/0275-l.webp" aria-label="Ver toma 0275"><img src="fotos/tustyle/0275-s.webp" width="900" height="600" loading="lazy" decoding="async" alt=""><span>0275</span></button><button class="cs-i" data-g="tustyle" data-k="0313" data-l="fotos/tustyle/0313-l.webp" aria-label="Ver toma 0313"><img src="fotos/tustyle/0313-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0313</span></button><button class="cs-i" data-g="tustyle" data-k="0321" data-l="fotos/tustyle/0321-l.webp" aria-label="Ver toma 0321"><img src="fotos/tustyle/0321-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0321</span></button><button class="cs-i" data-g="tustyle" data-k="0353" data-l="fotos/tustyle/0353-l.webp" aria-label="Ver toma 0353"><img src="fotos/tustyle/0353-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0353</span></button><button class="cs-i" data-g="tustyle" data-k="0371" data-l="fotos/tustyle/0371-l.webp" aria-label="Ver toma 0371"><img src="fotos/tustyle/0371-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0371</span></button><button class="cs-i" data-g="tustyle" data-k="0372" data-l="fotos/tustyle/0372-l.webp" aria-label="Ver toma 0372"><img src="fotos/tustyle/0372-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0372</span></button><button class="cs-i" data-g="tustyle" data-k="0391" data-l="fotos/tustyle/0391-l.webp" aria-label="Ver toma 0391"><img src="fotos/tustyle/0391-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0391</span></button><button class="cs-i" data-g="tustyle" data-k="0415" data-l="fotos/tustyle/0415-l.webp" aria-label="Ver toma 0415"><img src="fotos/tustyle/0415-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0415</span></button><button class="cs-i" data-g="tustyle" data-k="0437" data-l="fotos/tustyle/0437-l.webp" aria-label="Ver toma 0437"><img src="fotos/tustyle/0437-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0437</span></button><button class="cs-i" data-g="tustyle" data-k="0441" data-l="fotos/tustyle/0441-l.webp" aria-label="Ver toma 0441"><img src="fotos/tustyle/0441-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0441</span></button><button class="cs-i" data-g="tustyle" data-k="0494" data-l="fotos/tustyle/0494-l.webp" aria-label="Ver toma 0494"><img src="fotos/tustyle/0494-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0494</span></button><button class="cs-i" data-g="tustyle" data-k="0507" data-l="fotos/tustyle/0507-l.webp" aria-label="Ver toma 0507"><img src="fotos/tustyle/0507-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0507</span></button><button class="cs-i" data-g="tustyle" data-k="0518" data-l="fotos/tustyle/0518-l.webp" aria-label="Ver toma 0518"><img src="fotos/tustyle/0518-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0518</span></button><button class="cs-i" data-g="tustyle" data-k="0600" data-l="fotos/tustyle/0600-l.webp" aria-label="Ver toma 0600"><img src="fotos/tustyle/0600-s.webp" width="900" height="600" loading="lazy" decoding="async" alt=""><span>0600</span></button><button class="cs-i" data-g="tustyle" data-k="0601" data-l="fotos/tustyle/0601-l.webp" aria-label="Ver toma 0601"><img src="fotos/tustyle/0601-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0601</span></button><button class="cs-i" data-g="tustyle" data-k="0634" data-l="fotos/tustyle/0634-l.webp" aria-label="Ver toma 0634"><img src="fotos/tustyle/0634-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0634</span></button><button class="cs-i" data-g="tustyle" data-k="0636" data-l="fotos/tustyle/0636-l.webp" aria-label="Ver toma 0636"><img src="fotos/tustyle/0636-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0636</span></button><button class="cs-i" data-g="tustyle" data-k="0645" data-l="fotos/tustyle/0645-l.webp" aria-label="Ver toma 0645"><img src="fotos/tustyle/0645-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0645</span></button><button class="cs-i" data-g="tustyle" data-k="0702" data-l="fotos/tustyle/0702-l.webp" aria-label="Ver toma 0702"><img src="fotos/tustyle/0702-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0702</span></button><button class="cs-i" data-g="tustyle" data-k="0717" data-l="fotos/tustyle/0717-l.webp" aria-label="Ver toma 0717"><img src="fotos/tustyle/0717-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0717</span></button><button class="cs-i" data-g="tustyle" data-k="0719" data-l="fotos/tustyle/0719-l.webp" aria-label="Ver toma 0719"><img src="fotos/tustyle/0719-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0719</span></button><button class="cs-i" data-g="tustyle" data-k="0727" data-l="fotos/tustyle/0727-l.webp" aria-label="Ver toma 0727"><img src="fotos/tustyle/0727-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0727</span></button><button class="cs-i" data-g="tustyle" data-k="0739" data-l="fotos/tustyle/0739-l.webp" aria-label="Ver toma 0739"><img src="fotos/tustyle/0739-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0739</span></button><button class="cs-i" data-g="tustyle" data-k="0755" data-l="fotos/tustyle/0755-l.webp" aria-label="Ver toma 0755"><img src="fotos/tustyle/0755-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0755</span></button><button class="cs-i" data-g="tustyle" data-k="0765" data-l="fotos/tustyle/0765-l.webp" aria-label="Ver toma 0765"><img src="fotos/tustyle/0765-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0765</span></button><button class="cs-i" data-g="tustyle" data-k="0769" data-l="fotos/tustyle/0769-l.webp" aria-label="Ver toma 0769"><img src="fotos/tustyle/0769-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0769</span></button><button class="cs-i" data-g="tustyle" data-k="0806" data-l="fotos/tustyle/0806-l.webp" aria-label="Ver toma 0806"><img src="fotos/tustyle/0806-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0806</span></button><button class="cs-i" data-g="tustyle" data-k="0814" data-l="fotos/tustyle/0814-l.webp" aria-label="Ver toma 0814"><img src="fotos/tustyle/0814-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0814</span></button><button class="cs-i" data-g="tustyle" data-k="0831" data-l="fotos/tustyle/0831-l.webp" aria-label="Ver toma 0831"><img src="fotos/tustyle/0831-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0831</span></button><button class="cs-i" data-g="tustyle" data-k="0871" data-l="fotos/tustyle/0871-l.webp" aria-label="Ver toma 0871"><img src="fotos/tustyle/0871-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0871</span></button><button class="cs-i" data-g="tustyle" data-k="0893" data-l="fotos/tustyle/0893-l.webp" aria-label="Ver toma 0893"><img src="fotos/tustyle/0893-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0893</span></button><button class="cs-i" data-g="tustyle" data-k="0898" data-l="fotos/tustyle/0898-l.webp" aria-label="Ver toma 0898"><img src="fotos/tustyle/0898-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0898</span></button><button class="cs-i" data-g="tustyle" data-k="0904" data-l="fotos/tustyle/0904-l.webp" aria-label="Ver toma 0904"><img src="fotos/tustyle/0904-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0904</span></button><button class="cs-i" data-g="tustyle" data-k="0914" data-l="fotos/tustyle/0914-l.webp" aria-label="Ver toma 0914"><img src="fotos/tustyle/0914-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>0914</span></button><button class="cs-i" data-g="tustyle" data-k="1006" data-l="fotos/tustyle/1006-l.webp" aria-label="Ver toma 1006"><img src="fotos/tustyle/1006-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>1006</span></button><button class="cs-i" data-g="tustyle" data-k="1017" data-l="fotos/tustyle/1017-l.webp" aria-label="Ver toma 1017"><img src="fotos/tustyle/1017-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>1017</span></button><button class="cs-i" data-g="tustyle" data-k="1024" data-l="fotos/tustyle/1024-l.webp" aria-label="Ver toma 1024"><img src="fotos/tustyle/1024-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>1024</span></button><button class="cs-i" data-g="tustyle" data-k="1043" data-l="fotos/tustyle/1043-l.webp" aria-label="Ver toma 1043"><img src="fotos/tustyle/1043-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>1043</span></button><button class="cs-i" data-g="tustyle" data-k="1047" data-l="fotos/tustyle/1047-l.webp" aria-label="Ver toma 1047"><img src="fotos/tustyle/1047-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>1047</span></button><button class="cs-i" data-g="tustyle" data-k="1060" data-l="fotos/tustyle/1060-l.webp" aria-label="Ver toma 1060"><img src="fotos/tustyle/1060-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>1060</span></button><button class="cs-i" data-g="tustyle" data-k="1094" data-l="fotos/tustyle/1094-l.webp" aria-label="Ver toma 1094"><img src="fotos/tustyle/1094-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>1094</span></button><button class="cs-i" data-g="tustyle" data-k="1115" data-l="fotos/tustyle/1115-l.webp" aria-label="Ver toma 1115"><img src="fotos/tustyle/1115-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>1115</span></button><button class="cs-i" data-g="tustyle" data-k="1124" data-l="fotos/tustyle/1124-l.webp" aria-label="Ver toma 1124"><img src="fotos/tustyle/1124-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>1124</span></button><button class="cs-i" data-g="tustyle" data-k="1140" data-l="fotos/tustyle/1140-l.webp" aria-label="Ver toma 1140"><img src="fotos/tustyle/1140-s.webp" width="600" height="900" loading="lazy" decoding="async" alt=""><span>1140</span></button></div>
   </div>
 </section>
 
-<section id="about" class="about-wrap">
-  <div class="about">
-    <div class="portrait"><img src="img/about.jpg" alt="Male"></div>
-    <div>
-      <div class="eyebrow">About</div>
-      <h2>Diseño que nace de la imagen y se cuenta en cada toma.</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
-      <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident.</p>
-      <div class="facts">
-        <div><div class="n">12+</div><div class="l">Editoriales</div></div>
-        <div><div class="n">3</div><div class="l">Colecciones</div></div>
-        <div><div class="n">2026</div><div class="l">Graduación</div></div>
-      </div>
-    </div>
+<section class="ch paper escritos" aria-label="Escritos">
+  <div class="ch-kicker rv">Escritos</div>
+  <div class="docs">
+    <article class="doc rv" id="n04">
+      <div class="doc-top"><span>Nº 04</span><span>Ensayo · Università di Bologna</span><span>2025</span></div>
+      <div class="doc-big">1929<i>—</i>1955</div>
+      <h3 class="doc-title">Adipiscing <em>sed</em></h3>
+      <p class="doc-line">Duis aute irure dolor in reprehenderit.</p>
+      <div class="doc-foot"><span>EN</span><span>Lorem ipsum dolor</span></div>
+    </article>
+    <article class="doc doc-b rv" id="n05">
+      <div class="doc-top"><span>Nº 05</span><span>Investigación · UADE</span><span>2026</span></div>
+      <div class="doc-big">#GRWM</div>
+      <h3 class="doc-title">Eiusmod <em>tempor</em></h3>
+      <p class="doc-line">Excepteur sint occaecat cupidatat non proident.</p>
+      <div class="doc-foot"><span>ES</span><span>Lorem ipsum dolor</span></div>
+    </article>
+  </div>
+</section>
+</main>
+
+<section class="about" id="sobre-mi" aria-label="Sobre mí">
+  <figure class="f rv" data-g="tustyle" data-k="0353" data-l="fotos/tustyle/0353-l.webp"><img class="" src="fotos/tustyle/0353-s.webp" srcset="fotos/tustyle/0353-s.webp 600w, fotos/tustyle/0353-l.webp 1333w" sizes="(max-width: 820px) 100vw, 33vw" width="1333" height="2000" loading="lazy" decoding="async" alt=""></figure>
+  <div class="about-txt rv">
+    <div class="kicker">Sobre mí</div>
+    <h2>Lorem ipsum <em>dolor sit</em> amet.</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p>
+    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris.</p>
+    <dl class="facts">
+      <dt>Formación</dt><dd>Diseño y Gestión de Estéticas para la Moda — UADE</dd>
+      <dt>Intercambio</dt><dd>Università di Bologna</dd>
+      <dt>Base</dt><dd>Buenos Aires, Argentina</dd>
+    </dl>
   </div>
 </section>
 
-<section id="contact" class="contact">
-  <div class="eyebrow">Contact</div>
-  <h2>Trabajemos<br>juntos</h2>
+<footer class="contact" id="contacto">
+  <div class="kicker">Contacto</div>
+  <h2>Trabajemos <em>juntos</em></h2>
   <a class="mail" href="mailto:hola@male.com">hola@male.com</a>
-  <ul class="socials">
-    <li><a href="#">Instagram</a></li>
-    <li><a href="#">Behance</a></li>
-    <li><a href="#">LinkedIn</a></li>
-  </ul>
-</section>
-
-<footer>
-  <span>© 2026 Male</span>
-  <span>Buenos Aires, AR</span>
+  <ul class="socials"><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li></ul>
+  <div class="foot"><b>Male</b><span>© 2026 — Portfolio</span></div>
 </footer>
 
+<div class="lb" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Visor de imágenes">
+  <div class="lb-bar"><span class="lb-title"></span><span class="lb-count"></span><button class="lb-close">Cerrar ✕</button></div>
+  <div class="lb-stage"><img alt=""><button class="lb-nav lb-prev" aria-label="Anterior">←</button><button class="lb-nav lb-next" aria-label="Siguiente">→</button></div>
+  <div class="lb-cap">Lorem ipsum dolor sit amet.</div>
+</div>
+<div class="cur" aria-hidden="true">Ver</div>
 <script>
-  // smooth-close mobile note + simple menu toggle (in-memory only)
-  document.querySelector('.menu-toggle').addEventListener('click',function(){
-    var ul=document.querySelector('nav ul');
-    var open=ul.style.display==='flex';
-    if(open){ul.style.display='';}
-    else{
-      ul.style.position='absolute';ul.style.top='60px';ul.style.right='22px';
-      ul.style.flexDirection='column';ul.style.gap='16px';ul.style.display='flex';
-    }
+(function(){
+  var d=document, root=d.documentElement; root.classList.add('js');
+  var fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+  var reduce=matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  // menú mobile
+  var mb=d.querySelector('.menu-btn'), ul=d.querySelector('nav ul');
+  mb.addEventListener('click',function(){ul.classList.toggle('open');mb.setAttribute('aria-expanded',ul.classList.contains('open'))});
+  ul.addEventListener('click',function(e){if(e.target.tagName==='A')ul.classList.remove('open')});
+
+  // progreso de scroll
+  var pr=d.querySelector('.prog'), tick=false;
+  function onScroll(){var h=root.scrollHeight-innerHeight;pr.style.transform='scaleX('+(h>0?scrollY/h:0)+')';tick=false}
+  addEventListener('scroll',function(){if(!tick){tick=true;requestAnimationFrame(onScroll)}},{passive:true});
+
+  // aparición al hacer scroll
+  if('IntersectionObserver' in window && !reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{rootMargin:'0px 0px -8% 0px',threshold:.06});
+    d.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  } else d.querySelectorAll('.rv').forEach(function(el){el.classList.add('in')});
+
+  // índice: preview que sigue al cursor
+  var pv=d.querySelector('.ix-prev'), pimg=pv.querySelector('img');
+  if(fine){
+    d.querySelectorAll('.index a').forEach(function(a){
+      a.addEventListener('mouseenter',function(){var s=a.getAttribute('data-prev');if(!s){pv.classList.remove('on');return}pimg.src=s;pv.classList.add('on')});
+      a.addEventListener('mouseleave',function(){pv.classList.remove('on')});
+      a.addEventListener('mousemove',function(e){pv.style.left=e.clientX+'px';pv.style.top=e.clientY+'px'});
+    });
+  }
+
+  // cursor "Ver"
+  var cur=d.querySelector('.cur');
+  if(fine){
+    addEventListener('mousemove',function(e){cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px'},{passive:true});
+    d.addEventListener('mouseover',function(e){cur.classList.toggle('on',!!e.target.closest('.f'))});
+  }
+
+  // lightbox
+  var NAMES={alien:'Nº 01',latas:'Nº 02',tustyle:'Nº 03'};
+  var groups={};
+  d.querySelectorAll('[data-g]').forEach(function(el){
+    var g=el.dataset.g,k=el.dataset.k; groups[g]=groups[g]||{};
+    if(!groups[g][k])groups[g][k]=el.dataset.l;
   });
-  // subtle reveal on scroll
-  var io=new IntersectionObserver(function(es){
-    es.forEach(function(e){if(e.isIntersecting){e.target.style.opacity=1;e.target.style.transform='none';}});
-  },{threshold:.12});
-  document.querySelectorAll('.project').forEach(function(el){
-    el.style.opacity=0;el.style.transform='translateY(24px)';
-    el.style.transition='opacity .9s ease, transform .9s ease';io.observe(el);
+  Object.keys(groups).forEach(function(g){var o=groups[g];groups[g]=Object.keys(o).sort().map(function(k){return{k:k,src:o[k]}})});
+  var lb=d.querySelector('.lb'), lbi=lb.querySelector('.lb-stage img'), lbc=lb.querySelector('.lb-count'), lbt=lb.querySelector('.lb-title');
+  var cg=null, ci=0, last=null;
+  function show(i){
+    var list=groups[cg]; ci=(i+list.length)%list.length;
+    lbi.style.opacity=0;
+    var im=new Image(); im.onload=function(){lbi.src=im.src;lbi.style.opacity=1}; im.src=list[ci].src;
+    lbc.textContent=(ci+1)+' / '+list.length;
+    [1,-1].forEach(function(s){var n=list[(ci+s+list.length)%list.length];(new Image()).src=n.src});
+  }
+  function open(g,k,el){
+    cg=g; last=el; var list=groups[g], i=0;
+    for(var j=0;j<list.length;j++)if(list[j].k===k){i=j;break}
+    lbt.textContent=NAMES[g]||''; lb.classList.add('on'); lb.setAttribute('aria-hidden','false');
+    d.body.style.overflow='hidden'; show(i); lb.querySelector('.lb-close').focus();
+  }
+  function close(){lb.classList.remove('on');lb.setAttribute('aria-hidden','true');d.body.style.overflow='';lbi.removeAttribute('src');if(last)last.focus&&last.focus()}
+  d.querySelectorAll('[data-g]').forEach(function(el){
+    if(el.tagName==='FIGURE'){el.setAttribute('tabindex','0');el.setAttribute('role','button');el.setAttribute('aria-label','Ampliar imagen')}
+    el.addEventListener('click',function(){open(el.dataset.g,el.dataset.k,el)});
+    el.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(el.dataset.g,el.dataset.k,el)}});
   });
+  lb.querySelector('.lb-prev').addEventListener('click',function(){show(ci-1)});
+  lb.querySelector('.lb-next').addEventListener('click',function(){show(ci+1)});
+  lb.querySelector('.lb-close').addEventListener('click',close);
+  d.addEventListener('keydown',function(e){if(!lb.classList.contains('on'))return;
+    if(e.key==='Escape')close();else if(e.key==='ArrowRight')show(ci+1);else if(e.key==='ArrowLeft')show(ci-1)});
+  var sx=null;
+  lb.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+  lb.addEventListener('touchend',function(e){if(sx===null)return;var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45)show(ci+(dx<0?1:-1));sx=null});
+})();
 </script>
 </body>
 </html>
