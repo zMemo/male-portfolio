@@ -1,14 +1,10 @@
-# Malé — Portfolio
+# Male — Portfolio
 
-Portfolio de diseño de moda (editoriales y shootings). Sitio estático de una sola página.
+Sitio estático (sin build).
 
-## Estructura
-- `index.html` — el sitio completo (HTML + CSS + JS en un solo archivo).
+- `index.html` — home: una portada por trabajo.
+- `01/` … `05/` — un "book" por trabajo con el resto de las fotos.
+- `assets/` — estilos (`style.css`) y scripts (`site.js`) compartidos.
+- `fotos/<serie>/` — imágenes en webp, `-s` (900px) y `-l` (2000px).
 
-## Deploy en Vercel
-Sitio 100% estático, sin build. Al importar el repo en Vercel:
-- **Framework Preset:** Other
-- **Build Command:** (vacío)
-- **Output Directory:** (vacío / raíz)
-
-Cada push a la rama `main` redeploya automáticamente.
+Deploy: Vercel (preset "Other"), cada push a `main` redeploya.
