@@ -133,7 +133,7 @@ nav a:hover{opacity:.55}
 .about{padding:clamp(80px,12vw,180px) var(--pad);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--gut);row-gap:40px;align-items:end;border-top:1px solid var(--line)}
 .about .f{grid-column:1 / span 4}
 .about-txt{grid-column:6 / span 6}
-.about h2{font-family:var(--serif);font-weight:300;font-size:clamp(2.4rem,5.6vw,5.4rem);line-height:.95;margin-bottom:28px}
+.about h2{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,3.7vw,3.7rem);line-height:1.02;margin-bottom:28px;max-width:20ch}
 .about p{font-size:1.02rem;max-width:46ch;color:#3b3833;margin-bottom:14px}
 .facts{margin-top:36px;border-top:1px solid var(--line);display:grid;grid-template-columns:110px 1fr;font-size:.82rem}
 .facts dt,.facts dd{padding:12px 0;border-bottom:1px solid var(--line)}
