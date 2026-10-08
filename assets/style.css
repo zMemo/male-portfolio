@@ -57,6 +57,20 @@ nav a:hover{opacity:.55}
 .wk:hover .wk-doc{transform:translateY(-6px)}
 .drop{margin-top:clamp(40px,9vw,170px)}.drop-s{margin-top:clamp(24px,4.5vw,80px)}.end{align-self:end}
 
+/* índice */
+.index{padding:clamp(50px,7vw,110px) var(--pad) clamp(60px,8vw,120px)}
+.index ol{list-style:none;border-top:1px solid var(--line)}
+.index li a{display:grid;grid-template-columns:70px 1fr 300px 70px;align-items:baseline;gap:20px;padding:22px 0;border-bottom:1px solid var(--line);transition:padding .5s var(--ease),color .3s}
+.ix-no,.ix-y{font-size:.75rem;letter-spacing:.18em;color:var(--muted);font-variant-numeric:tabular-nums}
+.ix-y{text-align:right}
+.ix-t{font-family:var(--serif);font-size:clamp(2rem,5.2vw,4.6rem);line-height:1;font-weight:300}
+.ix-t em{font-style:italic}
+.ix-c{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.index li a:hover{padding-left:18px}
+.index ol:hover li a{color:#b9b2a6}.index ol li a:hover{color:var(--ink)}
+.ix-prev{position:fixed;left:0;top:0;width:clamp(170px,15vw,240px);pointer-events:none;z-index:90;opacity:0;transform:translate(-50%,-50%) scale(.92);transition:opacity .35s,transform .35s var(--ease)}
+.ix-prev.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+
 /* ---------- BOOK ---------- */
 .bk{padding:calc(80px + 2vh) var(--pad) 0}
 .bk-bar{display:flex;justify-content:space-between;gap:20px;font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-bottom:clamp(30px,5vw,70px)}
@@ -95,7 +109,8 @@ nav a:hover{opacity:.55}
 .txt-big{grid-column:1/-1;font-family:var(--serif);font-weight:300;font-size:clamp(5rem,19vw,19rem);line-height:.8;letter-spacing:-.04em}
 .txt-big i{font-style:italic;opacity:.4}
 .txt-body{grid-column:5 / span 6}
-.txt-body p{font-family:var(--serif);font-size:clamp(1.25rem,1.9vw,1.7rem);line-height:1.35;margin-bottom:1em}
+.txt-body p{font-family:var(--serif);font-size:clamp(1.2rem,1.8vw,1.6rem);line-height:1.38;margin-bottom:1em}
+.txt-body p+p{text-indent:2em}
 .txt .facts{grid-column:5 / span 6;margin-top:0}
 
 /* siguiente book */
@@ -157,6 +172,7 @@ nav a:hover{opacity:.55}
 
 /* responsive */
 @media (max-width:1000px){
+  .index li a{grid-template-columns:44px 1fr 60px}.ix-c{display:none}
   .hero-side{grid-column:1/-1;padding-bottom:0}.mast{grid-column:1/-1}
 }
 @media (max-width:820px){

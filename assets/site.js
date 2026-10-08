@@ -23,12 +23,24 @@
     rv.forEach(function(el){io.observe(el)});
   } else rv.forEach(function(el){el.classList.add('in')});
 
+  // índice: preview que sigue al cursor
+  var pv=d.querySelector('.ix-prev');
+  if(fine&&pv){
+    var pimg=pv.querySelector('img');
+    d.querySelectorAll('.index a').forEach(function(a){
+      a.addEventListener('mouseenter',function(){var s=a.getAttribute('data-prev');if(!s){pv.classList.remove('on');return}pimg.src=s;pv.classList.add('on')});
+      a.addEventListener('mouseleave',function(){pv.classList.remove('on')});
+      a.addEventListener('mousemove',function(e){pv.style.left=e.clientX+'px';pv.style.top=e.clientY+'px'});
+    });
+  }
+
   // cursor "Ver"
   var cur=d.querySelector('.cur');
   if(fine&&cur){
     addEventListener('mousemove',function(e){cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px'},{passive:true});
     d.addEventListener('mouseover',function(e){
       var t=e.target.closest('.f,.wk,.next');
+      if(e.target.closest('.index')){cur.classList.remove('on');return}
       cur.classList.toggle('on',!!t);
       cur.textContent=t&&(t.classList.contains('wk')||t.classList.contains('next'))?'Abrir':'Ver';
     });
